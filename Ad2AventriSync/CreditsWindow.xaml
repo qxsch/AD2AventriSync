@@ -1,0 +1,25 @@
+﻿<Window x:Class="Ad2AventriSync.CreditsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ad2AventriSync"
+        mc:Ignorable="d"
+        Icon="cloud-sync.png"
+        Title="Credits" Height="400" Width="600"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow">
+    <Grid>
+        <RichTextBox Name="CreditsBox" IsReadOnly="True" AcceptsReturn="True">
+            <FlowDocument>
+                <Paragraph Margin="0" FontSize="18">Icon Credits</Paragraph>
+                <List Margin="10,10,0,10">
+                    <ListItem>
+                        <Paragraph Margin="0" Foreground="Blue" TextDecorations="Underline" Cursor="Hand" MouseLeftButtonDown="Paragraph_Click" DataContext="https://www.flaticon.com/authors/freepik">By Freepik on Flaticon</Paragraph>
+                    </ListItem>
+                </List>
+
+            </FlowDocument>
+        </RichTextBox>
+    </Grid>
+</Window>
