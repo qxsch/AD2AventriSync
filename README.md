@@ -16,3 +16,4 @@ Note about http proxy url:
 
 <img src="https://github.com/qxsch/AD2AventriSync/blob/master/screenshot-mainwindow.PNG">
 
+[Icons by Freepik on Flaticon](https://www.flaticon.com/authors/freepik)
