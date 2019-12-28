@@ -23,10 +23,12 @@ namespace Ad2AventriSync
         };
 
 
+        private static object _defaultLdapPathLock = new object();
+
         private static string _defaultLdapPath = "";
         public static string GetDefaultLdapPath()
         {
-            lock(_defaultLdapPath)
+            lock(_defaultLdapPathLock)
             {
                 if (_defaultLdapPath == "")
                 {
@@ -79,6 +81,22 @@ namespace Ad2AventriSync
             }
         }
 
+        private string[] GetLdapPropertiesToLoad()
+        {
+            string[] properties = new string[PropertiesToLoad.Count + 1];
+            properties[0] = "userAccountControl";
+            int i = 1;
+            foreach(string p in PropertiesToLoad)
+            {
+                if(p.ToLower() == "useraccountcontrol")
+                {
+                    return PropertiesToLoad.ToArray();
+                }
+                properties[i++] = p;
+            }
+            return properties;
+        }
+
         public List<Dictionary<string, List<string>>> Search(string query)
         {
             List<Dictionary<string, List<string>>> result = new List<Dictionary<string, List<string>>>();
@@ -86,7 +104,7 @@ namespace Ad2AventriSync
             SetDefaultsIfEmptyOrNull();
 
             DirectoryEntry entry = new DirectoryEntry("LDAP://" + BaseDn);
-            using (DirectorySearcher ds = new DirectorySearcher(entry, query, PropertiesToLoad.ToArray()))
+            using (DirectorySearcher ds = new DirectorySearcher(entry, query, GetLdapPropertiesToLoad()))
             {
                 ds.PageSize = 500;
                 ds.SizeLimit = 0;
@@ -104,7 +122,11 @@ namespace Ad2AventriSync
                         }
                         d.Add(key.ToLower(), val);
                     }
-                    result.Add(d);
+                    // just add enabled users....
+                    if(adResult.Properties.Contains("userAccountControl") && !Convert.ToBoolean(((int)adResult.Properties["userAccountControl"][0]) & 0x002))
+                    {
+                        result.Add(d);
+                    }
                 }
             }
             return result;
@@ -122,7 +144,7 @@ namespace Ad2AventriSync
             }
 
             DirectoryEntry entry = new DirectoryEntry("LDAP://" + BaseDn);
-            using (DirectorySearcher ds = new DirectorySearcher(entry, query, PropertiesToLoad.ToArray()))
+            using (DirectorySearcher ds = new DirectorySearcher(entry, query, GetLdapPropertiesToLoad()))
             {
                 ds.PageSize = 500;
                 ds.SizeLimit = 0;
@@ -144,7 +166,11 @@ namespace Ad2AventriSync
                         }
                         i++;
                     }
-                    table.Rows.Add(row);
+                    // just add enabled users....
+                    if (adResult.Properties.Contains("userAccountControl") && !Convert.ToBoolean(((int)adResult.Properties["userAccountControl"][0]) & 0x002))
+                    {
+                        table.Rows.Add(row);
+                    }
                 }
             }
 
