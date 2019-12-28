@@ -42,25 +42,25 @@
 
                 <StackPanel Grid.Row="0" Grid.Column="0">
                     <StackPanel Orientation="Horizontal" Margin="2">
-                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="AddSearchItemButtonClick">
+                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="AddSearchItemButtonClick" ToolTip="Add">
                             <Image Source="ico-plus.png" Height="16" />
                         </Button>
-                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="RemoveSearchItemButtonClick">
+                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="RemoveSearchItemButtonClick" ToolTip="Remove">
                             <Image Source="ico-minus.png" Height="16" />
                         </Button>
-                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="CloneSelectedSearchItemClick">
+                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="CloneSelectedSearchItemClick" ToolTip="Clone">
                             <Image Source="ico-sheep.png" Height="16" />
                         </Button>
-                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="MoveUpSearchItemButtonClick">
+                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="MoveUpSearchItemButtonClick" ToolTip="Move up">
                             <Image Source="ico-arrow-up.png" Height="16" />
                         </Button>
-                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="MoveDownSearchItemButtonClick">
+                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="MoveDownSearchItemButtonClick" ToolTip="Move down">
                             <Image Source="ico-arrow-down.png" Height="16" />
                         </Button>
-                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="ExpandSearchItemButtonClick">
+                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="ExpandSearchItemButtonClick" ToolTip="Expand all">
                             <Image Source="ico-expand.png" Height="14" Width="14" />
                         </Button>
-                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="CollapseSearchItemButtonClick">
+                        <Button Height="22" Margin="2,0,2,0" Padding="10,0,10,2" Click="CollapseSearchItemButtonClick" ToolTip="Collapse all">
                             <Image Source="ico-collapse.png" Height="16" />
                         </Button>
                     </StackPanel>
