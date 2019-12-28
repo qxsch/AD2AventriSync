@@ -15,8 +15,8 @@ Features:
 
 Note about http proxy url:
  * For SSO auth (Default Credentials) for your proxy use ``:@`` like: ``http://:@myproxy.local``
- * For basic auth use ``user:password@`` like:    ``http://user:password@myproxy.local``
- * For NO AUTH just use the hostname like: ``http://:@myproxy.local``
+ * For basic auth use ``user:password@`` like:    ``http://user:password@myproxy.local:8080``
+ * For NO AUTH just use the hostname like: ``http://myproxy.local:8080``
 
 <img src="https://github.com/qxsch/AD2AventriSync/blob/master/screenshot-mainwindow.PNG">
 
