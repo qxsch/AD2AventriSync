@@ -2,7 +2,7 @@
 
 # AD2AventriSync
 
-Export your AD Users to Aventri Subscriber Lists.
+Export or Synchronize your AD Users to Aventri Subscriber Lists.
 
 Written on a single day to have a GUI for our event guys. So there is room for improvement. Feel free to contribute.
 
